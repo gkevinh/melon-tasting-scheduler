@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scheduled Reservations</title>
+</head>
+<!DOCTYPE html>
+<html>
+  <body>
+    <div class="reservations-container">
+        <h2>{{ user.username }}'s<br>Reservations</h2>
+      </div>
+      <div class="reservations-box">
+        {% if reservations %}
+          <ul class="list-unstyled">
+            {% for reservation in reservations %}
+              <li class="no-bullet" style="font-size: 13px;">
+                {{ reservation.reservation_date.strftime('%m/%d/%Y') }} at {{ reservation.reservation_time.strftime('%I:%M %p') }}
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p>No reservations yet</p>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+</html>

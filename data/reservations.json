@@ -1,0 +1,27 @@
+[
+    {
+    "username": "jdoe",
+    "reservation_date": "2023-05-07",
+    "reservation_time": "05:30:00 AM"
+    },
+    {
+    "username": "ajohnson",
+    "reservation_date": "2023-05-08",
+    "reservation_time": "06:00:00 AM"
+    },
+    {
+    "username": "jsmith",
+    "reservation_date": "2023-05-09",
+    "reservation_time": "07:30:00 AM"
+    },
+    {
+    "username": "jsmith",
+    "reservation_date": "2023-05-11",
+    "reservation_time": "03:30:00 AM"
+    },
+    {
+    "username": "ajohnson",
+    "reservation_date": "2023-05-15",
+    "reservation_time": "02:00:00 AM"
+    }
+]
