@@ -10,8 +10,13 @@
     <form id="reservation-form">
       <label for="start">Start date:</label>
       <input type="date" id="start" name="trip-start"
-             value="2023-05-06"
-             min="2023-01-01" max="2024-05-05">
+             value="{{today}}"
+             min="{{today}}">
+             <script>
+                const today = new Date().toISOString().split('T')[0];
+                const maxDate = new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0];
+                document.getElementById("start").setAttribute("max", maxDate);
+             </script>
       <br><br><br>
       <label for="time">Time:</label>
       <select id="time" name="time">
@@ -23,10 +28,9 @@
           {% endfor %}
         {% endfor %}
       </select>
-      <input type="hidden" id="reservation_date" value="{{ reservation_date }}">
-      <input type="hidden" id="reservation_time" value="{{ reservation_time }}">
-      <input type="hidden" id="is_not_available" value="{{ is_not_available }}">
-      
+      <input type="hidden" id="reservation_date" name="reservation_date">
+      <input type="hidden" id="reservation_time" name="reservation_time">
+      <input type="hidden" id="is_not_available" name="is_not_available">
       <br><br><br>
       <button type="submit">Submit</button>
     </form>

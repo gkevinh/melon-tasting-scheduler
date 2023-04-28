@@ -4,8 +4,9 @@ import crud
 import os
 import requests
 import json
-from datetime import datetime, timedelta
+from datetime import datetime, date
 from sqlalchemy import func
+
 
 from jinja2 import StrictUndefined
 
@@ -48,7 +49,8 @@ def enter_user():
 @app.route("/search", methods=['GET', 'POST'])
 def search():
 
-    return render_template('search.html')
+    today = date.today()
+    return render_template('search.html', today=today)
 
 
 
