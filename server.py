@@ -5,7 +5,6 @@ import os
 import requests
 import json
 from datetime import datetime, date
-from sqlalchemy import func
 
 
 from jinja2 import StrictUndefined
@@ -49,6 +48,12 @@ def enter_user():
 @app.route("/search", methods=['GET', 'POST'])
 def search():
 
+    username = session.get("username")
+    user = crud.get_user_by_username(username)
+    if not username:
+        return render_template("/")
+    
+    flash(f"{user.username}'s account")
     today = date.today()
     return render_template('search.html', today=today)
 
@@ -57,23 +62,19 @@ def search():
 @app.route('/add-reservation', methods=['POST'])
 def add_reservation():
     """Add reservation to user's reservations table."""
-    if 'username' not in session:
+    if 'username' not in session or not user:
         return jsonify({'success': False, 'message': 'Please log in to add a reservation'})
 
     user = crud.get_user_by_username(session['username'])
 
-    if not user:
-        return jsonify({'success': False, 'message': 'Please log in to add a reservation'})
-
     data = request.json
+    user_id = user.id
     reservation_date = data.get('reservation_date')
     reservation_time = data.get('reservation_time')
     is_not_available = data.get('is_not_available')
-    user_id = user.id
 
     check_res=crud.check_if_reservation_exists(reservation_date, reservation_time)
     
-
     if check_res:
         return jsonify({'success': False, 'message': 'Reservation is taken.  Please choose another time.'}) 
     else:
@@ -107,7 +108,7 @@ def view_reservations():
 def logout():
     """User logout."""
 
-    session.pop("user_email", None)
+    session.pop("username", None)
 
     flash("You have been logged out.")
     return redirect("/")

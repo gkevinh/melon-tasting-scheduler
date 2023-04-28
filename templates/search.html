@@ -6,17 +6,19 @@
   <body>
     <h1>Search For A Reservation</h1>
     <h3>Please choose a date and a time.</h3>
+    {% with message = get_flashed_messages() %}
+    {% if message %}
+        <ul class="flashes">
+        <h3>{{ message[0] }}</h3>
+        </ul>
+    {% endif %}
+    {% endwith %}
     <br>
     <form id="reservation-form">
-      <label for="start">Start date:</label>
+      <label for="start">Date:</label>
       <input type="date" id="start" name="trip-start"
              value="{{today}}"
              min="{{today}}">
-             <script>
-                const today = new Date().toISOString().split('T')[0];
-                const maxDate = new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0];
-                document.getElementById("start").setAttribute("max", maxDate);
-             </script>
       <br><br><br>
       <label for="time">Time:</label>
       <select id="time" name="time">
@@ -33,6 +35,9 @@
       <input type="hidden" id="is_not_available" name="is_not_available">
       <br><br><br>
       <button type="submit">Submit</button>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">LOGOUT</a>
+      </li>
     </form>
     <div class="h_container add-reservation">
     </div>
