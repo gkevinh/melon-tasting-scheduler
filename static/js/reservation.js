@@ -17,13 +17,13 @@ const reservationDateInput = document.querySelector('#reservation_date');
 const timeInput = document.querySelector('#time');
 const reservationTimeInput = document.querySelector('#reservation_time');
 
-dateInput.addEventListener('change1', () => {
+dateInput.addEventListener('change', () => {
   const selectedDate = dateInput.value;
   reservationDateInput.value = selectedDate;
 });
 
 
-dateInput.addEventListener('change2', () => {
+dateInput.addEventListener('change', () => {
   const selectedTime = timeInput.value;
   reservationTimeInput.value = selectedTime;
 });
