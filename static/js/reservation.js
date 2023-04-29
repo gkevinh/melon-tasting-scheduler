@@ -19,8 +19,10 @@ reservationForm.addEventListener('submit', (evt) => {
   const reservation_date = document.querySelector("#reservation_date").innerHTML;
   const reservation_time = document.querySelector("#reservation_time").innerHTML;
   const is_not_available = document.querySelector("#is_not_available").innerHTML;
+  const time = document.querySelector("#time").innerHTML;
+  const start = document.querySelector("#start").innerHTML;
   const convertedTime = convertTo24Hour(reservation_time);
-  submitReservation(user_id, reservation_date, convertedTime, is_not_available);
+  submitReservation(user_id, reservation_date, convertedTime, is_not_available, time, start);
 });
 
 
