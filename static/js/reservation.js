@@ -16,20 +16,13 @@ const reservationForm = document.querySelector('.add-reservation');
 reservationForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
   const user_id = user.id;
-  const reservation_date = document.querySelector("#reservation_date").value;
-  const reservation_time = document.querySelector("#reservation_time").value;
-  const is_not_available = document.querySelector("#is_not_available").value;
-  const selectedDate = document.querySelector("#start").value;
+  const reservation_date = document.querySelector("#reservation_date").innerHTML;
+  const reservation_time = document.querySelector("#reservation_time").innerHTML;
+  const is_not_available = document.querySelector("#is_not_available").innerHTML;
   const convertedTime = convertTo24Hour(reservation_time);
-  submitReservation(user_id, reservation_date, convertedTime, is_not_available, selectedDate);
+  submitReservation(user_id, reservation_date, convertedTime, is_not_available);
 });
 
-window.addEventListener('load', (evt) => {
-  const today = new Date().toISOString().split('T')[0];
-  const maxDate = new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0];
-  document.getElementById("reservation_date").setAttribute("min", today);
-  document.getElementById("reservation_date").setAttribute("max", maxDate);
-});
 
 function submitReservation(user_id, reservation_date, reservation_time, is_not_available) {
   const input = {
