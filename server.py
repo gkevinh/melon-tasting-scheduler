@@ -62,29 +62,27 @@ def search():
 @app.route('/add-reservation', methods=['POST'])
 def add_reservation():
     """Add reservation to user's reservations table."""
-    if 'username' not in session or not user:
+    if 'username' not in session:
         return jsonify({'success': False, 'message': 'Please log in to add a reservation'})
-
+    
     user = crud.get_user_by_username(session['username'])
 
     data = request.json
-    user_id = user.id
     reservation_date = data.get('reservation_date')
     reservation_time = data.get('reservation_time')
-    is_not_available = data.get('is_not_available')
 
-    check_res=crud.check_if_reservation_exists(reservation_date, reservation_time)
-    
-    if check_res:
-        return jsonify({'success': False, 'message': 'Reservation is taken.  Please choose another time.'}) 
-    else:
-        reservation = Reservation(user_id=user_id,
-                                   reservation_date=reservation_date,
-                                   reservation_time=reservation_time,
-                                   is_not_available=is_not_available)
-        db.session.add(reservation)
-        db.session.commit()
-        return jsonify({'success': True, 'message': 'Reservation added!'})
+    if crud.get_reservation_by_date_and_time(reservation_date, reservation_time):
+        return jsonify({'success': False, 'message': 'Reservation already taken. Please choose another time.'})
+
+    reservation = Reservation(user_id=user.id,
+                               reservation_date=reservation_date,
+                               reservation_time=reservation_time,
+                               is_not_available=True)
+
+    db.session.add(reservation)
+    db.session.commit()
+
+    return jsonify({'success': True, 'message': 'Reservation added!'})
 
 
 

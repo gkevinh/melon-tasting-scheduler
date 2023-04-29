@@ -18,6 +18,7 @@ def get_user_by_username(username):
     return User.query.filter_by(username=username).first()
 
 
+
 def get_reservation_by_user_id(user_id):
     """Return a reservation by user ID."""
     return Reservation.query.filter_by(user_id=user_id).first()
@@ -70,6 +71,7 @@ def save_reservation(user):
     return reservation
 
 
+
 def save_reservation(user, reservation_date, reservation_time, is_not_available):
     """Save and return reservation."""
     reservation = Reservation(user=user,
@@ -79,3 +81,10 @@ def save_reservation(user, reservation_date, reservation_time, is_not_available)
     db.session.add(reservation)
     db.session.commit()
     return reservation
+
+
+
+def get_reservation_by_date_and_time(reservation_date, reservation_time):
+    """Return a reservation object for a given date and time"""
+    return Reservation.query.filter_by(reservation_date=reservation_date,
+                                    reservation_time=reservation_time).first()
