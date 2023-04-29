@@ -23,20 +23,19 @@ dateInput.addEventListener('change', () => {
 });
 
 
-dateInput.addEventListener('change', () => {
+timeInput.addEventListener('change', () => {
   const selectedTime = timeInput.value;
   reservationTimeInput.value = selectedTime;
 });
 
-
 reservationForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
   const user_id = user.id;
-  const reservation_date = document.querySelector("#reservation_date").innerHTML;
-  const reservation_time = document.querySelector("#reservation_time").innerHTML;
-  const is_not_available = document.querySelector("#is_not_available").innerHTML;
-  const time = document.querySelector("#time").innerHTML;
-  const start = document.querySelector("#start").innerHTML;
+  const reservation_date = reservationDateInput.value;
+  const reservation_time = reservationTimeInput.value;
+  const is_not_available = document.querySelector("#is_not_available").value;
+  const time = timeInput.value;
+  const start = dateInput.value;
   const convertedTime = convertTo24Hour(reservation_time);
   submitReservation(user_id, reservation_date, convertedTime, is_not_available, time, start);
 });
