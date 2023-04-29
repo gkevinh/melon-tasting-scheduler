@@ -19,6 +19,7 @@
       <input type="date" id="start" name="trip-start"
              value="{{today}}"
              min="{{today}}">
+      <input type="hidden" id="reservation_date" name="reservation_date">
       <br><br><br>
       <label for="time">Time:</label>
       <select id="time" name="time">
@@ -30,7 +31,6 @@
           {% endfor %}
         {% endfor %}
       </select>
-      <input type="hidden" id="reservation_date" name="reservation_date">
       <input type="hidden" id="reservation_time" name="reservation_time">
       <input type="hidden" id="is_not_available" name="is_not_available">
       <br><br><br>

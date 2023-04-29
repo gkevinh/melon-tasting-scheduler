@@ -12,6 +12,22 @@ function convertTo24Hour(time) {
 }
 
 const reservationForm = document.querySelector('.add-reservation');
+const dateInput = document.querySelector('#start');
+const reservationDateInput = document.querySelector('#reservation_date');
+const timeInput = document.querySelector('#time');
+const reservationTimeInput = document.querySelector('#reservation_time');
+
+dateInput.addEventListener('change1', () => {
+  const selectedDate = dateInput.value;
+  reservationDateInput.value = selectedDate;
+});
+
+
+dateInput.addEventListener('change2', () => {
+  const selectedTime = timeInput.value;
+  reservationTimeInput.value = selectedTime;
+});
+
 
 reservationForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
@@ -26,14 +42,16 @@ reservationForm.addEventListener('submit', (evt) => {
 });
 
 
-function submitReservation(user_id, reservation_date, reservation_time, is_not_available) {
+function submitReservation(user_id, reservation_date, reservation_time, is_not_available, time, start) {
   const input = {
     user_id: user_id,
     reservation_date: reservation_date,
     reservation_time: reservation_time,
-    is_not_available: is_not_available
+    is_not_available: is_not_available,
+    time: time,
+    start: start
   }
-  fetch('/add-favorite', {
+  fetch('/add-reservation', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
