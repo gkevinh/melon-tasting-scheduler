@@ -58,13 +58,16 @@ function submitReservation(reservation_date, reservation_time, is_not_available,
   .then((response) => response.json())
   .then((data) => {
     if (data.success) {
-      alert('Reservation added!');  
+      // alert('Reservation added!');  
+      Swal.fire('Reservation added!')
     } else {
-      alert('Reservation already taken. Try again.');
+      // alert('Reservation already taken. Try again.');
+      Swal.fire('Reservation already taken. Try again.')
     }
   })
   .catch(function(error) {
     console.error('Error adding:', error);
-    alert('Error');
+    // alert('Error');
+    Swal.fire('Error')
   });
 }
