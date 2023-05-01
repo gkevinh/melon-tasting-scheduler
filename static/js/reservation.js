@@ -11,7 +11,7 @@ function convertTo24Hour(time) {
   return `${hourInt.toString().padStart(2, '0')}:${minute}`;
 }
 
-const reservationForm = document.querySelector('.add-reservation');
+const reservationForm = document.querySelector('#reservation-form');
 const dateInput = document.querySelector('#start');
 const reservationDateInput = document.querySelector('#reservation_date');
 const timeInput = document.querySelector('#time');
@@ -30,20 +30,18 @@ timeInput.addEventListener('change', () => {
 
 reservationForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
-  const user_id = user.id;
   const reservation_date = reservationDateInput.value;
   const reservation_time = reservationTimeInput.value;
   const is_not_available = document.querySelector("#is_not_available").value;
   const time = timeInput.value;
   const start = dateInput.value;
   const convertedTime = convertTo24Hour(reservation_time);
-  submitReservation(user_id, reservation_date, convertedTime, is_not_available, time, start);
+  submitReservation(reservation_date, convertedTime, is_not_available, time, start);
 });
 
 
-function submitReservation(user_id, reservation_date, reservation_time, is_not_available, time, start) {
+function submitReservation(reservation_date, reservation_time, is_not_available, time, start) {
   const input = {
-    user_id: user_id,
     reservation_date: reservation_date,
     reservation_time: reservation_time,
     is_not_available: is_not_available,

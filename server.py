@@ -60,7 +60,7 @@ def search():
 
 
 @app.route('/add-reservation', methods=['POST'])
-def add_reservation(reservation_date, reservation_time):
+def add_reservation():  # removed parameters
     """Add reservation to user's reservations table."""
     if 'username' not in session:
         return jsonify({'success': False, 'message': 'Please log in to add a reservation'})
