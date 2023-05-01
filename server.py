@@ -60,7 +60,7 @@ def search():
 
 
 @app.route('/add-reservation', methods=['POST'])
-def add_reservation():  # removed parameters
+def add_reservation():
     """Add reservation to user's reservations table."""
     if 'username' not in session:
         return jsonify({'success': False, 'message': 'Please log in to add a reservation'})
@@ -72,7 +72,7 @@ def add_reservation():  # removed parameters
     reservation_time = data.get('reservation_time')
 
     if crud.get_reservation_by_date_and_time(reservation_date, reservation_time):
-        return jsonify({'success': False, 'message': 'Reservation already taken. Please choose another time.'})
+        return jsonify({'success': False, 'message': 'Reservation taken. Try again.'})
 
     reservation = Reservation(user_id=user.id,
                                reservation_date=reservation_date,
