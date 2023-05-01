@@ -12,18 +12,13 @@ body {
   
   
   
-  
   img{
     width:41%;
     height:auto;
     border:1pt solid rgb(50, 48, 48);
   }
   
-  
-  
-  
 
-  
   h2 {
     font-family: 'Nunito', 'Helvetica', sans-serif;
     font-size: 26px; 
@@ -31,7 +26,6 @@ body {
     color:black;
     font-weight: 500px;
   }
-  
   
   
   h3,
@@ -43,6 +37,3 @@ body {
     font-size: 16px; 
     font-weight: 400;
   }
-  
-  
-  

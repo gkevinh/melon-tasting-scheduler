@@ -12,14 +12,11 @@ body {
   
   
   
-
-  
   img{
     width:41%;
     height:auto;
     border:1pt solid rgb(50, 48, 48);
   }
-  
   
   
   h2 {
@@ -31,7 +28,6 @@ body {
   }
   
   
-  
   h3,
   h4,
   h5,
@@ -41,6 +37,3 @@ body {
     font-size: 16px; 
     font-weight: 400;
   }
-  
-  
-  

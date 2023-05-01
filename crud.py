@@ -11,7 +11,6 @@ def create_user(username):
     return user
 
 
-
 def get_user_by_username(username):
     """Return a user object by username"""
 
@@ -47,7 +46,6 @@ def create_reservation(username, res_date, res_time):
     return reservation
 
 
-
 def is_reservation_taken(datetime_obj):
     """Check if a reservation already exists for the given datetime object"""
     
@@ -56,7 +54,6 @@ def is_reservation_taken(datetime_obj):
         return True
     else:
         return False
-    
 
 
 def check_if_reservation_exists(reservation_date, reservation_time):
@@ -64,12 +61,10 @@ def check_if_reservation_exists(reservation_date, reservation_time):
     return Reservation.query.filter_by(reservation_date=reservation_date, reservation_time=reservation_time).first()
 
 
-
 def save_reservation(user):
     """Save and return reservation."""
     reservation = Reservation(user=user)
     return reservation
-
 
 
 def save_reservation(user, reservation_date, reservation_time, is_not_available):
@@ -81,7 +76,6 @@ def save_reservation(user, reservation_date, reservation_time, is_not_available)
     db.session.add(reservation)
     db.session.commit()
     return reservation
-
 
 
 def get_reservation_by_date_and_time(reservation_date, reservation_time):

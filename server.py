@@ -108,7 +108,6 @@ def logout():
 
     session.pop("username", None)
 
-    flash("You have been logged out.")
     return redirect("/")
 
 
