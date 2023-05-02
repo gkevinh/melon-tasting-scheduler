@@ -62,7 +62,7 @@ function submitReservation(reservation_date, reservation_time, is_not_available,
       Swal.fire('Reservation added!')
     } else {
       // alert('Reservation already taken. Try again.');
-      Swal.fire('Reservation taken. Try again.')
+      Swal.fire(data.message)
     }
   })
   .catch(function(error) {

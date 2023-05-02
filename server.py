@@ -71,6 +71,10 @@ def add_reservation():
     reservation_date = data.get('reservation_date')
     reservation_time = data.get('reservation_time')
 
+    existing_reservation = crud.user_has_reservation_on_date(user, reservation_date)
+    if existing_reservation:
+        return jsonify({'success': False, 'message': 'You already have a reservation for this date'})
+
     if crud.get_reservation_by_date_and_time(reservation_date, reservation_time):
         return jsonify({'success': False, 'message': 'Reservation taken. Try again.'})
 

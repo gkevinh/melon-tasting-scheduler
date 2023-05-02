@@ -31,6 +31,14 @@ def get_reservations_by_user(user):
 
 
 
+def user_has_reservation_on_date(user, reservation_date):
+    """Check if user has a reservation scheduled for a specific date."""
+    
+    reservation = Reservation.query.filter_by(user=user, reservation_date=reservation_date).first()
+    return reservation is not None
+
+
+
 def create_reservation(username, res_date, res_time):
     """Create a new reservation and return the reservation object"""
 
