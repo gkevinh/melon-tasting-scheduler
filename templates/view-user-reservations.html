@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <div class="login">
   <title>Scheduled Reservations</title>
   <link rel="stylesheet" href="/static/css/view-user-reservations.css">
   <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
@@ -16,8 +17,8 @@
         {% if reservations %}
           <ul class="list-unstyled">
             {% for reservation in reservations %}
-              <li class="no-bullet" style="font-size: 13px;">
-                {{ reservation.reservation_date.strftime('%m/%d/%Y') }} at {{ reservation.reservation_time.strftime('%I:%M %p') }}
+              <li class="no-bullet">
+                🍉 {{ reservation.reservation_date.strftime('%m/%d/%Y') }} at {{ reservation.reservation_time.strftime('%I:%M %p') }}
               </li>
             {% endfor %}
           </ul>
@@ -27,12 +28,13 @@
       </div>
       <br>
       <li class="nav-item">
-        <a class="nav-link" href="/search">Schedule A Reservation</a>
+        <a class="nav-link btn btn-primary class-1" href="/search">Schedule Reservation</a>
       </li>
       <br>
       <li class="nav-item">
-        <a class="nav-link" href="/logout">Logout</a>
-      </li>
+        <a class="nav-link btn btn-primary class-1" href="/logout">Logout</a>
+      </li>      
     </div>
   </body>
+</div>
 </html>

@@ -7,20 +7,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
   </head>
   <body>
-    <h1>Kevin's Melon Experience</h1>
-    <h2>Please enter your username:</h2>
       <div class="login">
+        <h1>Kevin's Melon Experience</h1>
+        <h2>Please enter your username:</h2>
         <form action="/make-view" method="POST">
           <p class="username">
             Username  <input type="text" name="username" class="input_">
           </p>
+          <br>
           <p>
             <input type="submit" value="Submit" class="btn btn-primary class-1">
           </p>
-         <p>
-          <li class="nav-item">
-            <a class="nav-link" href="/logout">Logout</a>
-          </li>
+          <p>
+            <li class="nav-item">
+              <a class="btn btn-primary class-1" href="/logout">Logout</a>
+            </li>
           </p>
         </form>
         </div>

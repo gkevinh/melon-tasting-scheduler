@@ -8,8 +8,9 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
+    <div class="login">
     <h1>Search For A Reservation</h1>
-    <h3>Please choose a date and a time.</h3>
+    <h3>Please choose a <br> date and a time</h3>
     {% with message = get_flashed_messages() %}
     {% if message %}
         <ul class="flashes">
@@ -38,18 +39,19 @@
       <input type="hidden" id="reservation_time" name="reservation_time">
       <input type="hidden" id="is_not_available" name="is_not_available">
       <br><br><br>
-      <button type="submit">Submit</button>
+      <button type="submit" class="btn btn-primary class-1">Submit</button>
       <br><br>
       <li class="nav-item">
-        <a class="nav-link" href="/user-reservations">View Your Scheduled Reservations</a>
+        <a class="nav-link btn btn-primary class-1" href="/user-reservations">View Your Scheduled Reservations</a>
       </li>
       <br>
       <li class="nav-item">
-        <a class="nav-link" href="/logout">Logout</a>
+        <a class="nav-link btn btn-primary class-1" href="/logout">Logout</a>
       </li>
     </form>
     <div class="h_container add-reservation">
     </div>
     <script src="/static/js/reservation.js"></script>
+  </div>
   </body>
 </html>
