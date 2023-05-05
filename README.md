@@ -33,11 +33,16 @@ RUN FLASK SERVER:
 (env) $ python3 server.py
 
 
-Simple login (no password needed)
-Select date and time
-    -Reservation will be added to user account if available
-    -If booking on same day as previous reservation, message will display - #tooMuchMelon
-    -If reservation is already taken, message will display to choose another time
-    -logout
+Simple login (no password needed)  
 
-Would like to add delete capability so user can delete a reservation
+Select date and time  
+
+    -Reservation will be added to user account if available  
+
+    -If booking on same day as previous reservation, message will display - #tooMuchMelon  
+
+    -If reservation is already taken, message will display to choose another time  
+
+    -logout  
+
+Would like to add delete capability so user can delete a reservation  
