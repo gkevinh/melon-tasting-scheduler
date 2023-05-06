@@ -45,4 +45,7 @@ Select date and time
 
     -logout  
 
+
+TO DO'S:  
+
 Would like to add delete capability so user can delete a reservation  
